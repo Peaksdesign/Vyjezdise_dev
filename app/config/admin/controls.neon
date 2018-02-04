@@ -1,0 +1,20 @@
+services:
+    - App\Admin\Controls\User\IUserControlFactory
+    - App\Admin\Controls\User\Login\ILoginControlFactory
+    - App\Admin\Controls\User\Form\IFormControlFactory
+    - App\Admin\Controls\User\Grid\IGridControlFactory
+    - App\Admin\Controls\Destination\IDestinationControlFactory
+    - App\Admin\Controls\Destination\Form\IFormControlFactory
+    - App\Admin\Controls\Destination\Grid\IGridControlFactory
+    - App\Admin\Controls\Album\IAlbumControlFactory
+    - App\Admin\Controls\Album\Grid\IGridControlFactory
+    - App\Admin\Controls\Album\Form\IFormControlFactory
+    - App\Admin\Controls\Image\IImageControlFactory
+    - App\Admin\Controls\Image\Grid\IGridControlFactory
+    - App\Admin\Controls\Image\Form\IFormControlFactory
+    - App\Admin\Controls\Slope\ISlopeControlFactory
+    - App\Admin\Controls\Slope\Form\IFormControlFactory
+    - App\Admin\Controls\Slope\Grid\IGridControlFactory
+    - App\Admin\Controls\Rating\IRatingControlFactory
+    - App\Admin\Controls\Rating\Form\IFormControlFactory
+    - App\Admin\Controls\Rating\Grid\IGridControlFactory

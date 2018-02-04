@@ -1,0 +1,7 @@
+parameters:
+
+
+database:
+	dsn: 'mysql:host=wm152.wedos.net;dbname=d176987_vyjezdi'
+	user: 'a176987_vyjezdi'
+	password: 'Ahoj1+12'

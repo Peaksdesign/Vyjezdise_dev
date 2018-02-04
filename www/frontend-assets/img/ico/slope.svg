@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="16px" viewBox="0 0 25 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>délka trati - icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="vysledky_desktop" transform="translate(-744.000000, -449.000000)">
+            <g id="Výsledek-1" transform="translate(375.000000, 296.000000)">
+                <g id="07---Délka-trati" transform="translate(363.000000, 143.000000)">
+                    <g id="délka-trati---icon" transform="translate(18.384776, 18.384776) rotate(-45.000000) translate(-18.384776, -18.384776) translate(5.384776, 5.384776)">
+                        <polyline id="Shape" stroke="#1E7EFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(13.000000, 13.000000) rotate(-315.000000) translate(-13.000000, -13.000000) " points="24 19 14.5 9.5 9.5 14.5 2 7"></polyline>
+                        <circle id="Oval-3" fill="#1E7EFC" cx="16.5" cy="23.5" r="2.5"></circle>
+                        <circle id="Oval-3-Copy" fill="#1E7EFC" cx="9.5" cy="2.5" r="2.5"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,79 @@
+{block content}
+    <section class="p-results">
+        {snippet results}
+            <div class="results-snippet">
+        <div class="container">
+            <div class="results-count">
+                {if $count > 0}
+                    <p class="a-dark-text a-bigger-text">Nalezeno <strong>{$count}</strong> skiareálů na základě Vašeho filtrování.</p>
+                {else}
+                    <p class="a-dark-text a-bigger-text">Na základe Vašeho filtrování sme nenašli žádný skiareál, zkuste upravit nastavení a vyhledat znova.</p>
+                {/if}
+            </div>
+            <section class="o-results-list">
+                <div n:foreach="$results as $r" class="m-result-preview {if $iterator->counter > 3}hide-result{/if}">
+                    <div class="component u-flex-justify-height">
+                        <div class="img-wrap col-xl-4">
+                            <img class="preview" src="{$baseUri}/{$r->imgPath}" alt="{$r->name}"/>
+                        </div>
+                        <div class="info-wrap col-xl-8 col-md-12">
+                            <h2 class="name"> <a n:href="Destination:detail,  $r->id">{$r->name} </a>{if isset($r->distance) && $r->distance != '/' } - <span class="u-blue">{$r->distance} km</span>{/if}</h2>
+                            <div class="component u-flex-justify-height">
+                                <div class="a-info-ico col-xl-4 col-sm-6 col-xs-12">
+                                    <img src="{$baseUri}/frontend-assets/img/ico/pointer.svg" alt="pointer ico">
+                                    <span>{$r->address}</span>
+                                </div>
+                                <div class="a-info-ico col-xl-4 col-sm-6 col-xs-12">
+                                    <img src="{$baseUri}/frontend-assets/img/ico/district.svg" alt="district ico">
+                                    <span>{$r->district}</span>
+                                </div>
+                                <div class="a-info-ico col-xl-4 col-sm-6 col-xs-12">
+                                    <img src="{$baseUri}/frontend-assets/img/ico/phone.svg" alt="phone ico">
+                                    <span>{if substr($r->contact,0,1) != '+'}+420 {/if}{$r->contact}</span>
+                                </div>
+                                <div class="a-info-ico col-xl-4 col-sm-6 u-hide-xs">
+                                    <img src="{$baseUri}/frontend-assets/img/ico/slope.svg" alt="slope ico">
+                                    <span>Celková délka sjezdovek - {$r->slopeLength} m</span>
+                                </div>
+                                <div class="a-info-ico col-xl-4 col-sm-6 u-hide-xs">
+                                    <img src="{$baseUri}/frontend-assets/img/ico/difficulty.svg" alt="difficulty ico">
+                                    <span>Obtížnost - {$r->difficulty|lower}</span>
+                                </div>
+                                <div class="a-info-ico col-xl-4 col-sm-6 u-hide-xs">
+                                    <img src="{$baseUri}/frontend-assets/img/ico/lift.svg" alt="lift ico">
+                                    <span>Typy vleků - {$r->skiLift}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result-footer">
+                        <div class="component">
+
+                            <div class="col-xl-4 col-sm-12">
+                                <div class="rating-wrap">
+                                    {include ../controls/starRating.latte, rating => $r->rating}<span class="a-short-text">({$r->ratingNum})</span>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-sm-12">
+                                <div class="info-footer-wrap ">
+                                    <div class="component">
+                                        <div class="price col-xl-6 col-sm-7 col-xs-12">Denní skipas - <span class="u-blue">{$r->skipass}</span> Kč</div>
+                                        <div class="detail-link col-xl-6 col-sm-5 col-xs-12">
+                                            <a n:href="Destination:detail,  $r->id" class="a-btn a-btn-blue">Více info</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div n:if="$count > 4" class="btn-more">
+                <a href class="a-btn a-btn-blue" id="js-show-more-results">Načíst další výsledky</a>
+            </div>
+        </div>
+            </div>
+        {/snippet}
+    </section>
+{/block}
+{block scripts}

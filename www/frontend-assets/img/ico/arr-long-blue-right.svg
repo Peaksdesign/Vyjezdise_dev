@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="83px" height="10px" viewBox="0 0 83 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="vysledky_desktop" transform="translate(-1462.000000, -582.000000)" fill="#1E7EFC">
+            <g id="Výsledek-1" transform="translate(375.000000, 296.000000)">
+                <g id="Detail-skiareálu" transform="translate(920.000000, 279.000000)">
+                    <g id="arrow" transform="translate(167.000000, 7.000000)">
+                        <rect id="Rectangle-7" x="0" y="4" width="80" height="2" rx="1"></rect>
+                        <path d="M82.0195401,8.42510399 C82.3645497,8.85636592 82.9938421,8.9262873 83.425104,8.58127775 C83.8563659,8.2362682 83.9262873,7.60697583 83.5812778,7.17571389 L78.8004089,1.19962788 L74.0195401,7.17571389 C73.6745306,7.60697583 73.744452,8.2362682 74.1757139,8.58127775 C74.6069758,8.9262873 75.2362682,8.85636592 75.5812778,8.42510399 L78.8004089,4.40119 L82.0195401,8.42510399 Z" id="Triangle-2" fill-rule="nonzero" transform="translate(78.800409, 5.000037) rotate(-270.000000) translate(-78.800409, -5.000037) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

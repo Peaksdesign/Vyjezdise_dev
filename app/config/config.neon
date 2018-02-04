@@ -1,0 +1,21 @@
+parameters:
+
+
+application:
+	errorPresenter: User:Error
+	mapping:
+		*: App\*\Presenters\*Presenter
+
+extensions:
+    replicator: Kdyby\Replicator\DI\ReplicatorExtension
+session:
+	expiration: 14 days
+
+
+services:
+	router: App\RouterFactory::createRouter
+	authenticator: App\Security\Authenticator\UserAuthenticator
+includes:
+    - repository.neon
+    - admin/controls.neon
+    - user/controls.neon

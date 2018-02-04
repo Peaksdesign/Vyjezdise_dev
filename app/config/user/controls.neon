@@ -1,0 +1,4 @@
+services:
+    - App\User\Controls\Filter\IFilterControlFactory
+    - App\User\Controls\AddRating\IAddRatingControlFactory
+    - App\User\Controls\Grid\IGridControlFactory

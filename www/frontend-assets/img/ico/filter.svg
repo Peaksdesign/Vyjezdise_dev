@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="20px" viewBox="0 0 22 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>filter icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile---Panel" transform="translate(-278.000000, -30.000000)">
+            <g id="filter-icon" transform="translate(279.000000, 30.000000)">
+                <rect id="Rectangle-12-Copy" fill="#161D41" x="1" y="0" width="2" height="20" rx="1"></rect>
+                <rect id="Rectangle-12-Copy-2" fill="#161D41" x="9" y="0" width="2" height="20" rx="1"></rect>
+                <rect id="Rectangle-12-Copy-3" fill="#161D41" x="17" y="0" width="2" height="20" rx="1"></rect>
+                <circle id="Oval-Copy" stroke="#161D41" stroke-width="2" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" cx="2" cy="10" r="2"></circle>
+                <circle id="Oval-Copy-3" stroke="#161D41" stroke-width="2" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" cx="10" cy="5" r="2"></circle>
+                <circle id="Oval-Copy-4" stroke="#161D41" stroke-width="2" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" cx="18" cy="15" r="2"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

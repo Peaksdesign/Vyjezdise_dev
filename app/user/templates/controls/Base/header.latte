@@ -1,0 +1,195 @@
+<header class="m-header">
+    <div class="container">
+        <a class="logo-wrap" n:href="Homepage:">
+            <picture>
+                <source media="(max-width: 767px)" srcset="{$baseUri}/frontend-assets/img/logo_symbol.svg">
+                <img src="{$baseUri}/frontend-assets/img/logo_orig.svg" alt="logo"/>
+            </picture>
+        </a>
+        <div class="search-form">
+            <form>
+                <div class="a-search-input">
+                    <input type="text" required value="" placeholder="Odkud jedete / Cílová oblast" name="location" id="location" class="u-box-shadow"/>
+                    <input type="hidden" name="lat" id="lat" />
+                    <input type="hidden" name="long" id="long" />
+                </div>
+            </form>
+        </div>
+        <div class="show-filters-wrap">
+            <a href class="a-btn a-btn-inverted a-btn-select-fake u-box-shadow" id="js-show-filters"><span>Filtrování</span></a>
+        </div>
+    </div>
+</header>
+<div class="o-filters-dropdown" id="js-filters-dropdown">
+    <div id="js-filters-dropdown-overlay"></div>
+    <div class="container">
+        <div class="m-filters-header u-show-sm">
+            <a class="logo-wrap" n:href="Homepage:">
+                <img src="{$baseUri}/frontend-assets/img/logo_symbol.svg" alt="logo"/>
+            </a>
+            <span>Filtrování</span>
+            <a href id="js-hide-filters-mobile">
+                <img src="{$baseUri}/frontend-assets/img/ico/close.svg">
+            </a>
+        </div>
+        <section class="o-actual-filters" id="js-filter-fix">
+            <div class="filters-box">
+                <div class="base-filters">
+                    <div class="component">
+                        <div class="m-form-item col-xl-6 col-sm-12">
+                            <p class="title">Vzdálenost skiareálu</p>
+                            <div class="a-range-input">
+                                <input type="range" name="distance" min="{$min = 50}" max="{$max = 500}" value="{$defaults['distance']}" id="your-distance" step="1" oninput="outputUpdate(((value-{$min})*(100/({$max}-{$min}))), value,'#your-distance-val', 'km')">
+                                <output for="your-distance" id="your-distance-val" style="left: {ceil((($defaults['distance']-$min)*(100/($max-$min)))*2.35)}px">{$defaults['distance']} km</output>
+                            </div>
+                        </div>
+                        <div class="m-form-item col-xl-6 col-sm-12">
+                            <p class="title">Minimální délka sjezdovky</p>
+                            <div class="a-range-input">
+                                <input type="range" name="lenght" min="{$min = 0}" max="{$max = 3000}" value="{$defaults['lenght']}" id="slope-length" step="1"  oninput="outputUpdate(((value-{$min})*(100/({$max}-{$min}))), value,'#slope-length-val', 'm')">
+                                <output for="slope-length" id="slope-length-val" style="left: {ceil((($defaults['lenght']-$min)*(100/($max-$min)))*2.35)}px">{$defaults['lenght']} m</output>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component">
+
+                        <div class="m-form-item col-xl-6 col-sm-12">
+                            <p class="title">Počet sjezdovek ve skiareálu</p>
+                            <div class="a-radio-list">
+                                <div class="radio-item">
+                                    <input {if isset($defaults['slopeCount']) && $defaults['slopeCount'] == 2 }checked{/if} type="radio" name="slopeCount" id="radioExample-o1" value="2">
+                                    <label for="radioExample-o1">2</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input {if isset($defaults['slopeCount']) && $defaults['slopeCount'] == 4 }checked{/if} type="radio" name="slopeCount" id="radioExample-o2" value="4">
+                                    <label for="radioExample-o2">4</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input  {if isset($defaults['slopeCount']) && $defaults['slopeCount'] == 6 }checked{/if} type="radio" name="slopeCount" id="radioExample-o3" value="6">
+                                    <label for="radioExample-o3">6</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input  {if isset($defaults['slopeCount']) && $defaults['slopeCount'] == 8 }checked{/if} type="radio" name="slopeCount" id="radioExample-o4" value="8">
+                                    <label for="radioExample-o4">8+</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-form-item checkbox-wrap col-xl-6 col-sm-12">
+                            <p class="title">Obtížnost sjezdovky</p>
+                            <div class="a-checkbox">
+                                <input {if isset($defaults['slopeType']) && isset($defaults['slopeType']['4']) }checked{/if} id="black" name="slopeType" type="checkbox" value="4">
+                                <label for="black">Černá</label>
+                            </div>
+                            <div class="a-checkbox">
+                                <input {if isset($defaults['slopeType']) && isset($defaults['slopeType']['3']) }checked{/if} id="red" name="slopeType" type="checkbox" value="3">
+                                <label for="red">Červená</label>
+                            </div>
+                            <div class="a-checkbox">
+                                <input {if isset($defaults['slopeType']) && isset($defaults['slopeType']['2']) }checked{/if} id="blue" name="slopeType" type="checkbox" value="2">
+                                <label for="blue">Modrá</label>
+                            </div>
+                            <div class="a-checkbox">
+                                <input {if isset($defaults['slopeType']) && isset($defaults['slopeType']['1']) }checked{/if} id="yellow" name="slopeType" type="checkbox" value="1">
+                                <label for="yellow">Žlutá (Dětská)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="component">
+                        <div class="btn-wrap col-xl-12 col-sm-12">
+                            <a href class="a-btn a-btn-inverted a-btn-select-fake" id="js-show-advanced">Rozšířené hledání</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="advanced-filters" id="js-advanced-filters">
+                    <div class="component">
+                        <div class="m-form-item col-xl-6 col-sm-12">
+                            <p class="title">Maximální cena</p>
+                            <div class="a-range-input">
+                                <input type="range" name="price" min="{$min = 300}" max="{$max = 1500}" id="price" value="{$defaults['price']}" step="1" oninput="outputUpdate(((value-{$min})*(100/({$max}-{$min}))), value,'#price-val', 'Kč')">
+                                <output for="price" id="price-val"style="left: {ceil((($defaults['price']-$min)*(100/($max-$min)))*2.35)}px">{$defaults['price']} Kč</output>
+                            </div>
+                        </div>
+                        <div class="m-form-item checkbox-wrap col-xl-6 col-sm-12">
+                            <p class="title">Typ vleku</p>
+                            <div class="a-checkbox">
+                                <input {if isset($defaults['towType']) && isset($defaults['towType']['2']) }checked{/if} id="Kotva" name="towType" type="checkbox" value="2">
+                                <label for="Kotva">Kotva</label>
+                            </div>
+                            <div class="a-checkbox">
+                                <input {if isset($defaults['towType']) &&  isset($defaults['towType']['3']) }checked{/if} id="Poma" name="towType" type="checkbox" value="3">
+                                <label for="Poma">Poma</label>
+                            </div>
+                            <div class="a-checkbox">
+                                <input {if isset($defaults['towType']) &&  isset($defaults['towType']['6']) }checked{/if} id="Sedacka" name="towType" type="checkbox" value="6">
+                                <label for="Sedacka">Sedačka</label>
+                            </div>
+                            <div class="a-checkbox">
+                                <input {if isset($defaults['towType']) &&  isset($defaults['towType']['5']) }checked{/if} id="Kabinka" name="towType" type="checkbox" value="5">
+                                <label for="Kabinka">Kabinka</label>
+                            </div>
+                            <div class="a-checkbox">
+                                <input {if isset($defaults['towType']) &&  isset($defaults['towType']['1']) }checked{/if} id="DetskyVlek" name="towType" type="checkbox" value="1">
+                                <label for="DetskyVlek">Dětský Vlek</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="component">
+                        <div class="m-form-item checkbox-wrap col-xl-6 col-sm-12">
+                            <p class="title">Noční lyžování</p>
+                            <div class="a-checkbox">
+                                <input {if isset($defaults['night']) && $defaults['night'] == 1 }checked{/if} id="night" name="night" value="1" type="checkbox">
+                                <label for="night">Ano</label>
+                            </div>
+                        </div>
+
+                        <div class="m-form-item checkbox-wrap  col-xl-6 col-sm-12">
+                            <p class="title">Provozní doba</p>
+                            <div class="opening-hours">
+                                <div class="a-checkbox">
+                                    <input {if isset($defaults['openingDays']) && isset($defaults['openingDays']['monday']) }checked{/if} id="mon" name="openingDays[monday]" value="monday" type="checkbox">
+                                    <label for="mon">Po</label>
+                                </div>
+                                <div class="a-checkbox">
+                                    <input {if isset($defaults['openingDays']) && isset($defaults['openingDays']['tuesday']) }checked{/if} id="tue" name="openingDays[tuesday]" value="tuesday" type="checkbox">
+                                    <label for="tue">Út</label>
+                                </div>
+                                <div class="a-checkbox">
+                                    <input  {if isset($defaults['openingDays']) && isset($defaults['openingDays']['wednesday']) }checked{/if} id="wed" name="openingDays[wednesday]" value="wednesday" type="checkbox">
+                                    <label for="wed">St</label>
+                                </div>
+                                <div class="a-checkbox">
+                                    <input {if isset($defaults['openingDays']) && isset($defaults['openingDays']['thursday'])}checked{/if}  id="thu" name="openingDays[thursday]" value="thursday" type="checkbox">
+                                    <label for="thu">Čt</label>
+                                </div>
+                                <div class="a-checkbox">
+                                    <input {if isset($defaults['openingDays']) && isset($defaults['openingDays']['friday'])}checked{/if}  id="fri" name="openingDays[friday]" value="friday" type="checkbox">
+                                    <label for="fri">Pá</label>
+                                </div>
+                                <div class="a-checkbox">
+                                    <input {if isset($defaults['openingDays']) && isset($defaults['openingDays']['saturday'])}checked{/if}  id="sat" name="openingDays[saturday]" value="saturday" type="checkbox">
+                                    <label for="sat">So</label>
+                                </div>
+                                <div class="a-checkbox">
+                                    <input {if isset($defaults['openingDays']) && isset($defaults['openingDays']['sunday']) }checked{/if}  id="sun" name="openingDays[sunday]" value="sunday" type="checkbox">
+                                    <label for="sun">Ne</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script>
+    function outputUpdate(percentage, val, selector, unit) {
+        var output = document.querySelector(selector);
+        output.value = val + ' ' + unit;
+        output.style.left = percentage*2.35  + 'px';
+    }
+</script>

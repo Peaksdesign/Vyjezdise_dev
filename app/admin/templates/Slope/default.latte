@@ -1,0 +1,19 @@
+{block content}
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Sjezdovky</h1>
+                {if isset($id)}
+                    <a href="{link add, id => $id}" class="btn btn-primary">Přidat sjezdovku</a>
+                {else}
+                    <a href="{link add}" class="btn btn-primary">Přidat sjezdovku</a>
+                {/if}
+                <div class="row">
+                    {control slope-grid-grid}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

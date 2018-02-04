@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="22px" viewBox="0 0 24 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>horská oblast - icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="vysledky_desktop" transform="translate(-1019.000000, -366.000000)" stroke="#1E7EFC" stroke-width="2">
+            <g id="Výsledek-1" transform="translate(375.000000, 296.000000)">
+                <g id="02---Horská-oblast" transform="translate(645.000000, 69.000000)">
+                    <g id="horská-oblast---icon" transform="translate(0.000000, 2.000000)">
+                        <polygon id="Shape" points="0 4 0 20 7 16 15 20 22 16 22 0 15 4 7 0"></polygon>
+                        <path d="M7,0 L7,16" id="Shape"></path>
+                        <path d="M15,4 L15,20" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

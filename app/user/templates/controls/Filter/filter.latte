@@ -1,0 +1,177 @@
+<form action="/results" method="post" id="filter-form">
+
+    <div class="a-location-btn-wrap">
+        <button id="submit" class="a-btn a-btn-location {*active*}"></button>
+        <i id="loader" class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+    </div>
+
+    <div class="a-search-input">
+        <input type="text" value="" required placeholder="Odkud jedete / Cílová oblast" name="location" id="location" class="bigger"/>
+    </div>
+
+    <input type="hidden" name="lat"/>
+    <input type="hidden" name="long"/>
+    <div class="search-btn-wrap">
+        <input type="submit" value="Hledat" class="a-btn a-btn-blue a-btn-search" />
+    </div>
+
+    <section class="o-actual-filters">
+        <div class="filters-box">
+            <div class="base-filters">
+                <div class="component">
+                    <div class="m-form-item col-xl-6 col-sm-12">
+                        <p class="title">Vzdálenost skiareálu</p>
+                        <div class="a-range-input">
+                            <input type="range" name="distance" min="{$min = 50}" max="{$max = 500}" value="{$max}" id="your-distance" step="1" oninput="outputUpdate(((value-{$min})*(100/({$max}-{$min}))), value,'#your-distance-val', 'km')">
+                            <output for="your-distance" id="your-distance-val" style="left: 100%">{$max} km</output>
+                        </div>
+                    </div>
+                    <div class="m-form-item col-xl-6 col-sm-12">
+                        <p class="title">Minimální délka sjezdovky</p>
+                        <div class="a-range-input">
+                            <input type="range" name="lenght" min="{$min = 0}" max="{$max = 3000}" value="{$min}" id="slope-length" step="1" oninput="outputUpdate(((value-{$min})*(100/({$max}-{$min}))), value,'#slope-length-val', 'm')">
+                            <output for="slope-length" id="slope-length-val" style="left: 0;">{$min} m</output>
+                        </div>
+                    </div>
+                </div>
+                <div class="component">
+                    <div class="m-form-item col-xl-6 col-sm-12">
+                        <p class="title">Minimální počet sjezdovek</p>
+                        <div class="a-radio-list">
+                            <div class="radio-item">
+                                <input type="radio" name="slopeCount" id="radioExample-o1" value="2">
+                                <label for="radioExample-o1">2</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" name="slopeCount" id="radioExample-o2" value="4">
+                                <label for="radioExample-o2">4</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" name="slopeCount" id="radioExample-o3" value="6">
+                                <label for="radioExample-o3">6</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" name="slopeCount" id="radioExample-o4" value="8">
+                                <label for="radioExample-o4">8+</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-form-item checkbox-wrap col-xl-6 col-sm-12">
+                        <p class="title">Obtížnost sjezdovky</p>
+                        <div class="a-checkbox">
+                            <input id="black" name="slopeType[4]" type="checkbox" value="4">
+                            <label for="black">Černá</label>
+                        </div>
+                        <div class="a-checkbox">
+                            <input id="red" name="slopeType[3]" type="checkbox" value="3">
+                            <label for="red">Červená</label>
+                        </div>
+                        <div class="a-checkbox">
+                            <input id="blue" name="slopeType[2]" type="checkbox" value="2">
+                            <label for="blue">Modrá</label>
+                        </div>
+                        <div class="a-checkbox">
+                            <input id="yellow" name="slopeType[1]" type="checkbox" value="1">
+                            <label for="yellow">Žlutá (Dětská)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component">
+                    <div class="btn-wrap col-xl-12 col-sm-12">
+                        <a href class="a-btn a-btn-inverted a-btn-select-fake" id="js-show-advanced">Rozšířené hledání</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="advanced-filters" id="js-advanced-filters">
+                <div class="component">
+                    <div class="m-form-item col-xl-6 col-sm-12">
+                        <p class="title">Maximální cena</p>
+                        <div class="a-range-input">
+                            <input type="range" name="price" min="{$min = 300}" max="{$max = 1500}" value="{$max}" id="price" step="1" oninput="outputUpdate(((value-{$min})*(100/({$max}-{$min}))), value,'#price-val', 'Kč')">
+                            <output for="price" id="price-val" style="left: 100%">{$max} Kč</output>
+                        </div>
+                    </div>
+                    <div class="m-form-item checkbox-wrap col-xl-6 col-sm-12">
+                        <p class="title">Typ vleku</p>
+                        <div class="a-checkbox">
+                            <input id="Kotva" name="towType[2]" type="checkbox" value="2">
+                            <label for="Kotva">Kotva</label>
+                        </div>
+                        <div class="a-checkbox">
+                            <input id="Poma" name="towType[3]" type="checkbox" value="3">
+                            <label for="Poma">Poma</label>
+                        </div>
+                        <div class="a-checkbox">
+                            <input id="Sedacka" name="towType[6]" type="checkbox" value="6">
+                            <label for="Sedacka">Sedačka</label>
+                        </div>
+                        <div class="a-checkbox">
+                            <input id="Kabinka" name="towType[5]" type="checkbox" value="5">
+                            <label for="Kabinka">Kabinka</label>
+                        </div>
+                        <div class="a-checkbox">
+                            <input id="DetskyVlek" name="towType[1]" type="checkbox" value="1">
+                            <label for="DetskyVlek">Dětský Vlek</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component">
+                    <div class="m-form-item checkbox-wrap col-xl-6 col-sm-12">
+                        <p class="title">Noční lyžování</p>
+                        <div class="a-checkbox">
+                            <input id="night" name="night" value="1" type="checkbox">
+                            <label for="night">Ano</label>
+                        </div>
+                    </div>
+
+                    <div class="m-form-item checkbox-wrap  col-xl-6 col-sm-12">
+                        <p class="title">Provozní doba</p>
+                        <div class="opening-hours">
+                            <div class="a-checkbox">
+                                <input id="mon" name="openingDays[monday]" value="monday" type="checkbox">
+                                <label for="mon">Po</label>
+                            </div>
+                            <div class="a-checkbox">
+                                <input id="tue" name="openingDays[tuesday]" value="tuesday" type="checkbox">
+                                <label for="tue">Út</label>
+                            </div>
+                            <div class="a-checkbox">
+                                <input id="wed" name="openingDays[wednesday]" value="wednesday" type="checkbox">
+                                <label for="wed">St</label>
+                            </div>
+                            <div class="a-checkbox">
+                                <input id="thu" name="openingDays[thursday]" value="thursday" type="checkbox">
+                                <label for="thu">Čt</label>
+                            </div>
+                            <div class="a-checkbox">
+                                <input id="fri" name="openingDays[friday]" value="friday" type="checkbox">
+                                <label for="fri">Pá</label>
+                            </div>
+                            <div class="a-checkbox">
+                                <input id="sat" name="openingDays[saturday]" value="saturday" type="checkbox">
+                                <label for="sat">So</label>
+                            </div>
+                            <div class="a-checkbox">
+                                <input id="sun" name="openingDays[sunday]" value="sunday" type="checkbox">
+                                <label for="sun">Ne</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+
+<script>
+    function outputUpdate(percentage, val, selector, unit) {
+        var output = document.querySelector(selector);
+        output.value = val + ' ' + unit;
+        output.style.left = percentage*2.35  + 'px';
+    }
+</script>

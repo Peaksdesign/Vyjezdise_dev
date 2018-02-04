@@ -1,0 +1,9 @@
+services:
+    - App\Repository\User\UserRepository
+    - App\Repository\Destination\DestinationRepository
+    - App\Repository\Slope\SlopeRepository
+    - App\Repository\Tow\TowRepository
+    - App\Repository\Image\ImageRepository
+    - App\Repository\Album\AlbumRepository
+    - App\Repository\Opening\OpeningRepository
+    - App\Repository\Rating\RatingRepository

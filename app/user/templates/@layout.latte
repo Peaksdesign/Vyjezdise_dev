@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#fffff">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Google Tag Manager -->
+    <script n:syntax="off">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var
+    f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KV3G4XZ');</script>
+    <!-- End Google Tag Manager -->
+
+    {block favicons}
+    <link rel="apple-touch-icon" sizes="180x180" href="{$baseUri}/frontend-assets/img/favicons/apple-touch-icon.png">
+
+    <link rel="icon" type="image/png" href="{$baseUri}/frontend-assets/img/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="{$baseUri}/frontend-assets/img/favicons/android-chrome-256x256.png" sizes="256x256">
+
+    <link rel="manifest" href="{$baseUri}/frontend-assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="{$baseUri}/frontend-assets/img/favicons/safari-pinned-tab.svg">
+
+    <link rel="icon" type="image/png" href="{$baseUri}/frontend-assets/img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="{$baseUri}/frontend-assets/img/favicons/favicon-32x32.png" sizes="32x32">
+
+    <meta name="msapplication-config" content="{$baseUri}/frontend-assets/img/favicons/browserconfig.xml">
+    <meta name="msapplication-TileImage" content="{$baseUri}/frontend-assets/img/favicons/mstile-150x150.png">
+
+    <link rel="shortcut icon" href="{$baseUri}/frontend-assets/img/favicons/favicon.ico">
+
+    {/block}
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Vyjezdise.cz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{$baseUri}/frontend-assets/css/main.min.css?ver=0.1.0">
+
+    <style>
+        #loader {
+            display: none;
+        }
+    </style>
+</head>
+
+<body n:class="$presenter->isLinkCurrent('Homepage:') ? 'results'">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KV3G4XZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+{if !($presenter->isLinkCurrent("Homepage:*")) && !($presenter->isLinkCurrent("Destination:*"))}
+    {snippet header}
+    {include ./controls/Base/header.latte}
+    {/snippet}
+{/if}
+{include content}
+<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script
+        src="//code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyAbj1BXn0ZeaXIHRj7Q3-eXY-P1ntr9Y7w&libraries=places"></script>
+
+<script src="{$baseUri}/frontend-assets/js/nette.ajax.js"></script>
+<script src="{$baseUri}/frontend-assets/js/forms.js"></script>
+<script src="{$baseUri}/frontend-assets/js/main.js"></script>
+<script src="{$baseUri}/frontend-assets/js/result-filter.js"></script>
+<script src="{$baseUri}/frontend-assets/js/lightgallery.min.js"></script>
+
+{include scripts}
+</body>
+</html>

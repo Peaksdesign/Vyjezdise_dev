@@ -1,0 +1,242 @@
+{block content}
+    <header class="m-header detail-header">
+        <div class="container">
+            <div class="component">
+                <div class="back-link col-xl-6">
+                    <a n:href="Results:default, fromSession => true" class="a-link-arr-before a-short-text u-bold"><span>Zpět na výsledky</span></a>
+                </div>
+                <div class="logo-wrap col-xl-6 u-textRight">
+                    <a class="logo" n:href="Homepage:">
+                        <img src="{$baseUri}/frontend-assets/img/logo_orig.svg" alt="logo"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="p-detail">
+        <div class="detail-visual" style="background-image: url({$baseUri|noescape}/{$areal->imgPath|noescape}">
+            <div class="container a-gallery" id="js-gallery">
+                {foreach $images as $image}
+                    {if $iterator->counter == 1}
+                        <a href="{$baseUri}/upload/{$image->image->image_file}"
+                           class="a-btn a-btn-inverted a-btn-blue-hover">Zobrazit fotky</a>
+                    {else}
+                        <a href="{$baseUri}/upload/{$image->image->image_file}" class="no-img"></a>
+                    {/if}
+                {/foreach}
+            </div>
+        </div>
+        <div class="content container">
+            <div class="component">
+                <div class="col-xl-8 col-lg-7 col-md-12">
+                    <h1 class="a-title-h1">{$areal->name} {if isset($areal->distance) && $areal->distance != '/' } -
+                            <span class="u-blue">{$areal->distance} km</span>{/if}</h1>
+                    <div class="a-long-text desc">{$areal->desc}</div>
+
+                    <div class="ico-infos">
+                        <div class="component u-flex-justify-height">
+                            <div class="a-info-ico col-xl-4 col-lg-6 col-sm-12">
+                                <img src="{$baseUri}/frontend-assets/img/ico/pointer.svg" alt="pointer ico">
+                                <span>{$areal->address}</span>
+                            </div>
+                            <div class="a-info-ico col-xl-4 col-lg-6 col-sm-12">
+                                <img src="{$baseUri}/frontend-assets/img/ico/district.svg" alt="district ico">
+                                <span>{$areal->district}</span>
+                            </div>
+                            <div class="a-info-ico col-xl-4 col-lg-6 col-sm-12">
+                                <img src="{$baseUri}/frontend-assets/img/ico/phone.svg" alt="phone ico">
+                                <span>{if substr($areal->contact,0,1) != '+'}+420 {/if}{$areal->contact}</span>
+                            </div>
+                            <div class="u-cf"></div>
+                            <div class="a-info-ico col-xl-4 col-lg-6 col-sm-12">
+                                <img src="{$baseUri}/frontend-assets/img/ico/website.svg" alt="website ico">
+                                <span>{$areal->website}</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="m-slopes-table">
+                        <div class="table-wrap">
+                            <table>
+                                <tr n:foreach="$areal->slopes as $s">
+                                    <td class="a-short-text u-bold">Sjezdovka č.{$iterator->counter}</td>
+                                    <td n:if="$s->slope_type->id == '3'"><span class="red"></span></td>
+                                    <td n:if="$s->slope_type->id == '1'"><span class="yellow"></span></td>
+                                    <td n:if="$s->slope_type->id == '2'"><span class="blue"></span></td>
+                                    <td n:if="$s->slope_type->id == '4'"><span class="black"></span></td>
+                                    <td class="a-short-text"><img src="{$baseUri}/frontend-assets/img/ico/slope.svg"
+                                                                  alt="slope ico"/>Délka trati - {$s->lenght} m
+                                    </td>
+                                    <td class="a-short-text"><img
+                                                src="{$baseUri}/frontend-assets/img/ico/prediction.svg"
+                                                alt="prediction ico"/>Převýšení - {$s->camber} m
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-5 col-md-12">
+                    <div class="m-opening-hours">
+                        <div class="price">Denní skipas - <span class="u-blue">{$areal->skipass}</span> Kč</div>
+                        <table>
+                            <tr>
+                                <td class="u-blue">Pondělí:</td>
+                                <td>{if !empty($areal->openingHours->monday)} {$areal->openingHours->monday} {/if}</td>
+                            </tr>
+                            <tr>
+                                <td class="u-blue">Úterý:</td>
+                                <td>{if !empty($areal->openingHours->tuesday)}{$areal->openingHours->tuesday} {/if}</td>
+                            </tr>
+                            <tr>
+                                <td class="u-blue">Středa:</td>
+                                <td>{if !empty($areal->openingHours->wednesday)}{$areal->openingHours->wednesday}{/if}</td>
+                            </tr>
+                            <tr>
+                                <td class="u-blue">Čtvrtek:</td>
+                                <td>{if !empty($areal->openingHours->thursday)}{$areal->openingHours->thursday}{/if}</td>
+                            </tr>
+                            <tr>
+                                <td class="u-blue">Pátek:</td>
+                                <td>{if !empty($areal->openingHours->friday)}{$areal->openingHours->friday} {/if}</td>
+                            </tr>
+                            <tr>
+                                <td class="u-blue">Sobota:</td>
+                                <td>{if !empty($areal->openingHours->saturday)}{$areal->openingHours->saturday}{/if}</td>
+                            </tr>
+                            <tr>
+                                <td class="u-blue">Neděle:</td>
+                                <td>{if !empty($areal->openingHours->sunday)}{$areal->openingHours->sunday}{/if}</td>
+                            </tr>
+                        </table>
+                        <div class="website-link-wrap">
+                            <a href="{$areal->website}" target="_blank" class="a-btn a-btn-blue">Přejít na web</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-ratings">
+                <div class="component">
+                    <div class="col-xl-8 col-lg-7 col-md-12">
+                        <dl class="component">
+                            <dt class="main-rating col-xl-6 col-sm-12">{$areal->ratings->num} Hodnocení</dt>
+                            <dd class="col-xl-6 col-sm-12">{include ../controls/starRating.latte, rating => $areal->ratings->total}</dd>
+                        </dl>
+                        <dl class="all-ratings component active" id="js-ratings-overview">
+                            <dt class="a-short-text col-xl-6 col-sm-12">Parkování</dt>
+                            <dd class="col-xl-6 col-sm-12">{include ../controls/starRating.latte, rating => $areal->ratings->parking}</dd>
+                            <dt class="a-short-text col-xl-6 col-sm-12">Fronty</dt>
+                            <dd class="col-xl-6 col-sm-12">{include ../controls/starRating.latte, rating => $areal->ratings->lines}</dd>
+                            <dt class="a-short-text col-xl-6 col-sm-12">Občerstvení</dt>
+                            <dd class="col-xl-6 col-sm-12">{include ../controls/starRating.latte, rating => $areal->ratings->food}</dd>
+                        </dl>
+                    </div>
+                    {*<div class="col-xl-4 add-rating-btn-wrap">*}
+                    {*<a href class="a-btn a-btn-inverted" id="js-add-rating-btn">Přidat hodnocení</a>*}
+                    {*</div>*}
+                </div>
+            </div>
+            <div class="o-comments component">
+                <div class="col-xl-12">
+                    <div n:foreach="$comments as $c" class="m-comment {if $iterator->counter > 3}hide-comment{/if}" id="comment{$iterator->counter}">
+                        <div class="author">
+                            <img src="{$baseUri}/frontend-assets/img/ico/avatar.svg" alt="avarat ico"/>
+                            <p class="a-short-text">{$c->author}</p>
+                        </div>
+                        <div class="a-long-text">{$c->description}</div>
+                    </div>
+                </div>
+                <div class="col-xl-12">
+                    <div n:if="count($comments) > 3" class="a-pagination" id="js-pagination">
+                        <a href id="js-pag-arr-prev"><</a>
+                        <a href n:for="$i=0; $i<=((count($comments)-1)/3); $i++" class="pag-num {if $i == 0}active{/if}" id="p{$i+1}" data-page="{$i+1}">{$i+1}</a>
+                        {*<a href n:for="$i=0; $i<=(count($comments)/3); $i++" class="pag-num {if $i == 0}active{/if}" id="p{$i+1}" data-page="{$i+1}">{$i+1}</a>*}
+                        <a href id="js-pag-arr-next" class="enabled">></a>
+                    </div>
+                </div>
+            </div>
+
+            <section class="add-rating-wrap">
+                {control addRating}
+            </section>
+        </div>
+    </section>
+    {include ../controls/map.latte}
+    <footer class="m-footer">
+        <div class="a-long-text">Veškeré informace jsou pouze orientační, oficialní informace naleznete na stránkách
+            skiareálu
+        </div>
+    </footer>
+{/block}
+
+{block scripts}
+    <script type="text/javascript">
+        lightGallery(document.getElementById('js-gallery'));
+    </script>
+    <script type="text/javascript">
+        // When the window has finished loading create our google map below
+        google.maps.event.addDomListener(window, 'load', init);
+
+        function init() {
+            // Basic options for a simple Google Map
+            // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+            var mapOptions = {
+                // How zoomed in you want the map to start at (always required)
+                zoom: 14,
+
+                // The latitude and longitude to center the map (always required)
+                center: new google.maps.LatLng({$areal->lat}, {$areal->lng}),
+
+                // How you would like to style the map.
+                // This is where you would paste any style found on Snazzy Maps.
+                styles: [{
+                    "featureType": "administrative",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{"color": "#444444"}]
+                }, {
+                    "featureType": "landscape",
+                    "elementType": "all",
+                    "stylers": [{"color": "#f2f2f2"}]
+                }, {
+                    "featureType": "poi",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "off"}]
+                }, {
+                    "featureType": "road",
+                    "elementType": "all",
+                    "stylers": [{"saturation": -100}, {"lightness": 45}]
+                }, {
+                    "featureType": "road.highway",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "simplified"}]
+                }, {
+                    "featureType": "road.arterial",
+                    "elementType": "labels.icon",
+                    "stylers": [{"visibility": "off"}]
+                }, {
+                    "featureType": "transit",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "off"}]
+                }, {
+                    "featureType": "water",
+                    "elementType": "all",
+                    "stylers": [{"color": "#46bcec"}, {"visibility": "on"}]
+                }]
+            };
+
+            // Get the HTML DOM element that will contain your map
+            // We are using a div with id="map" seen below in the <body>
+            var mapElement = document.getElementById('map');
+
+            // Create the Google Map using our element and options defined above
+            var map = new google.maps.Map(mapElement, mapOptions);
+
+            // Let's also add a marker while we're at it
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng({$areal->lat}, {$areal->lng}),
+                map: map,
+                icon: {$baseUri}+'/frontend-assets/img/ico/marker.svg'
+            });
+        }
+    </script>
+{/block}

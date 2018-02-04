@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="32px" viewBox="0 0 52 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Logo_symbol</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0.333648 0.476 23.93009 0.476 23.93009 26.86025 0.333648 26.86025 0.333648 0.476"></polygon>
+        <polygon id="path-3" points="0 0.471552625 0 31.1793882 42.6468069 31.1793882 42.6468069 0.471552625"></polygon>
+    </defs>
+    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="vysledky_desktop" transform="translate(-375.000000, -37.000000)">
+            <g id="Menu">
+                <g id="Logo_symbol" transform="translate(375.000000, 37.000000)">
+                    <g id="Group-3" transform="translate(28.000000, 0.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Clip-2"></g>
+                        <path d="M19.334448,0.47575 L7.837008,0.47575 C6.271248,0.47575 4.813488,1.30775 3.970608,2.68175 L0.333648,8.61125 L2.148528,11.56975 L6.548208,4.39725 C6.830448,3.93675 7.312368,3.66225 7.837008,3.66225 L19.334448,3.66225 C20.152368,3.66225 20.545008,4.24075 20.676048,4.48975 C20.806608,4.73875 21.063888,5.39475 20.623728,6.11275 L9.712368,23.90125 L11.526768,26.86025 L23.200848,7.82825 C25.152048,4.64725 22.958928,0.47575 19.334448,0.47575" id="Fill-1" fill="#161D41" mask="url(#mask-2)"></path>
+                    </g>
+                    <g id="Group-6">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <g id="Clip-5"></g>
+                        <polygon id="Fill-4" fill="#1E7EFC" mask="url(#mask-4)" points="19.5948529 31.1793882 42.6468069 31.1793882 23.0516575 0.471552625 -0.000296551724 0.471552625"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

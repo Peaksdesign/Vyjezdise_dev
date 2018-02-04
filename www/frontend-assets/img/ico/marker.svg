@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="37px" viewBox="0 0 30 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48 (47235) - http://www.bohemiancoding.com/sketch -->
+    <title>location icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="detail_destkop_pridat_hodnoceni" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-917.000000, -3262.000000)">
+        <g id="Map" transform="translate(0.000000, 3063.000000)" fill="#1E7EFC">
+            <g id="location-icon" transform="translate(917.000000, 199.000000)">
+                <path d="M30,15.1363635 C30,26.9090908 15,37 15,37 C15,37 0,26.9090908 0,15.1363635 C1.23445261e-07,6.77678074 6.71572884,-3.73438656e-16 15,0 C23.2842712,3.73438656e-16 29.9999999,6.77678074 30,15.1363635 Z M15,20 C17.7614237,20 20,17.7614237 20,15 C20,12.2385763 17.7614237,10 15,10 C12.2385763,10 10,12.2385763 10,15 C10,17.7614237 12.2385763,20 15,20 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

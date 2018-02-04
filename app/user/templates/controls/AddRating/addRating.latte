@@ -1,0 +1,93 @@
+<section class="o-add-rating" id="js-add-rating-form">
+
+    <h3 class="title a-short-text">Přidat hodnocení</h3>
+    {form form}
+        <div class="component">
+            <div class="m-form-item col-xl-6 col-sm-12">
+                <input n:name="firstName" placeholder="Vaše jméno*" />
+            </div>
+            <div class="m-form-item col-xl-6 col-sm-12">
+                <input type="text" n:name="lastName" placeholder="Vaše příjmení" />
+            </div>
+        </div>
+        <div class="component">
+            <div class="m-form-item col-xl-12">
+                {input description placeholder => 'Přidejte komentář k vašemu hodnocení...'}
+
+            </div>
+        </div>
+        <div class="component">
+            <div class="m-form-item col-xl-4 col-sm-12">
+                <div class=" rating-wrap">
+                    <div class="a-short-text">Parkování</div>
+                    <div class="a-star-rating-input">
+                        <div class="fieldset">
+                            {foreach $form['parkingRating']->items as $key => $label}
+                                <input n:name="parkingRating:$key" id="parking-star{$key}"  />
+                                <label n:name="parkingRating:$key" for="parking-star{$key}" title="{$label}"></label>
+                            {/foreach}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-form-item col-xl-4 col-sm-12">
+                <div class=" rating-wrap">
+                    <div class="a-short-text">Fronty</div>
+                    <div class="a-star-rating-input">
+                        <div class="fieldset">
+                            {foreach $form['linesRating']->items as $key => $label}
+                                <input n:name="linesRating:$key" id="lines-star{$key}"  />
+                                <label n:name="linesRating:$key" for="lines-star{$key}" title="{$label}"></label>
+                            {/foreach}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-form-item col-xl-4 col-sm-12">
+                <div class="rating-wrap">
+                    <div class="a-short-text">Občerstvení</div>
+                    <div class="a-star-rating-input">
+                        <div class="fieldset">
+                            {foreach $form['foodRating']->items as $key => $label}
+                                <input n:name="foodRating:$key" id="food-star{$key}"  />
+                                <label n:name="foodRating:$key" for="food-star{$key}" title="{$label}"></label>
+                            {/foreach}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="component">
+            <div class="m-form-item col-xl-4 col-sm-12">
+                <div class=" rating-wrap">
+                    <div class="a-short-text">Celkové hodnocení</div>
+                    <div class="a-star-rating-input">
+                        <div class="fieldset">
+
+                            {foreach $form['totalRating']->items as $key => $label}
+                                <input n:name="totalRating:$key" id="main-star{$key}"  />
+                                <label n:name="totalRating:$key" for="main-star{$key}" title="{$label}"></label>
+                            {/foreach}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="component">
+            <div class="m-form-item col-xl-12">
+                <input id="ratingSubmit" type="submit" onclick="setHash()" class="a-btn a-btn-blue" name="sbmt" value="Potvrdit hodnocení" />
+            </div>
+        </div>
+
+{/form}
+{*<div class="a-note a-long-text">If you’re not being fucking honest with yourself how could you ever hope to communicate something meaningful to someone else?</div>*}
+</section>
+
+<script>
+    function setHash() {
+        var storage = new Storage();
+        storage.save('userRated', {'rated': true}, 30);
+    }
+</script>
